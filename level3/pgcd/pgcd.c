@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 			}
 			else if (a % divisor == 0 || b % divisor == 0)
 			{
-				divisor ++;
+				divisor++;
 			}
 			else
 				break;

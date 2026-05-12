@@ -1,33 +1,29 @@
 #include <unistd.h>
 
-int itoa(char *argv)
+void putnbr_base(int num)
 {
-	int i = 0;
-	int result = 0;
-	while (argv[i] >= '0' && argv[i] <= '9')
-	{
-		result = result * 10 + (argv[i] - '0');
-		i++;
-	}
-	return (result);
-}
+	char *hex_str = "0123456789abcdef";
+	char c;
 
-void putnbr( int result)
-{
-	char *hex = "0123456789abcdef";
-
-	if (result >= 16)
-		putnbr(result / 16);
-	char c = hex[result % 16];
+	if (num >= 16)
+		putnbr_base(num / 16);
+	c = hex_str[num % 16];
 	write(1, &c, 1);
 }
 
 int main(int argc, char **argv)
 {
+	int num = 0;
+	int i = 0;
+
 	if (argc == 2)
 	{
-		int result = itoa(argv[1]);
-		putnbr(result);
+		while (argv[1][i])
+		{
+			num = num * 10 + (argv[1][i] - '0');
+			i++;
+		}
+		putnbr_base(num);
 	}
 	write(1, "\n", 1);
 }
