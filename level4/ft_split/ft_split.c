@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 int is_space(char c)
 {
 	if ((c >= 9 && c <= 13) || c == 32)
@@ -32,7 +34,6 @@ char **ft_split(char *str)
 		}
 		count++;
 	}
-	
 	if (count_chars > 0)
 	{
 		words[count_words][count_chars] = '\0';
